@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<root>
+  <appdef>
+    <appname>ITERM2</appname>
+    <equal>com.googlecode.iterm2</equal>
+  </appdef>
+  <item>
+    <name> warmer config </name>
+    <item>
+      <name> My config for iTerm2</name>
+      <appendix>swap COMMAND_L and CONTROL_L</appendix>
+      <appendix>COMMAND_R to OPTION_R</appendix>
+      <appendix>Pass Through COMMAND + TAB and COMMAND + TAB + SHIFT  </appendix>
+      <identifier>private.my_config_for_iTerm2</identifier>
+      <only>ITERM2</only>
+      <autogen>--KeyToKey-- KeyCode::TAB, ModifierFlag::CONTROL_L,   KeyCode::TAB, ModifierFlag::COMMAND_L </autogen>
+      <autogen>--KeyToKey-- KeyCode::TAB, ModifierFlag::OPTION_R,    KeyCode::TAB, ModifierFlag::COMMAND_R </autogen>
+      <autogen> --KeyToKey-- KeyCode::COMMAND_L, KeyCode::CONTROL_L </autogen>
+      <autogen> --KeyToKey-- KeyCode::CONTROL_L, KeyCode::COMMAND_L </autogen>
+      <autogen> --KeyToKey-- KeyCode::COMMAND_R, KeyCode::OPTION_R </autogen>
+    </item>
+
+    <item>
+      <name>Shifts to Parentheses</name>
+      <appendix>Shifts, when pressed alone, type parentheses.</appendix>
+      <appendix>When used with other keys they're normal shifts.</appendix>
+
+      <identifier>private.shifts_to_parens</identifier>
+
+      <!-- This is the basic mapping. -->
+      <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::NONE, KeyCode::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L</autogen>
+      <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_R</autogen>
+
+      <!--
+          Remap the "rolls" of () and )( because it's too easy to hit one
+          before finishing the other, and there's no other reason to be
+          pressing both shift keys at once anyway
+      -->
+      <autogen>--KeyToKey-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_L</autogen>
+      <autogen>--KeyToKey-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_L, KeyCode::KEY_0, ModifierFlag::SHIFT_L</autogen>
+
+      <!--
+          Remap Rshift+Space to ') ', because when typing an end paren and
+          then a space I tend to hit space before I let go of rshift.
+      -->
+      <autogen>--KeyToKey-- KeyCode::SPACE, ModifierFlag::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L, KeyCode::SPACE</autogen>
+    </item>
+
+    <item>
+      <name>CONTROL_L to underscore '_' </name>
+      <appendix>Left Control, when pressed alone, type underscore. </appendix>
+      <appendix>When used with other keys they're normal shifts.</appendix>
+      <identifier>private.control_to_underscore</identifier>
+      <autogen>--KeyOverlaidModifier-- KeyCode::CONTROL_L, ModifierFlag::CONTROL_L | ModifierFlag::NONE, KeyCode::CONTROL_L, KeyCode::MINUS, ModifierFlag::SHIFT_L </autogen>
+      
+    </item>
+  </item>
+
+  
+  <item>
+    <name>Only for Keyboard Pure Pro</name>
+    <devicevendordef>
+      <vendorname>Heng_Yu_Technology</vendorname>
+      <vendorid>0x0f39</vendorid>
+    </devicevendordef>
+    <deviceproductdef>
+      <productname>Poker_Pro_X</productname>
+      <productid>0x0671</productid>
+    </deviceproductdef>
+
+    <item>
+      <name>Use PrtSc as FN Key</name>
+      <identifier>remap.prtsc_to_fn</identifier>
+      <device_only>DeviceVendor::Heng_Yu_Technology,DeviceProduct::Poker_Pro_X</device_only>
+      <autogen>__KeyToKey__  KeyCode::F13, KeyCode::FN</autogen>
+    </item>
+
+    <item>
+      <name>Map Fn + A, S, D to Music Controls</name>
+      <identifier>remap.purepro.fn_asd_to_music_controls</identifier>
+      <device_only>DeviceVendor::Heng_Yu_Technology,DeviceProduct::Poker_Pro_X</device_only>
+      <autogen>__KeyToConsumer__ KeyCode::A, ModifierFlag::FN, ConsumerKeyCode::MUSIC_PREV</autogen>
+      <autogen>__KeyToConsumer__ KeyCode::S, ModifierFlag::FN, ConsumerKeyCode::MUSIC_PLAY</autogen>
+      <autogen>__KeyToConsumer__ KeyCode::D, ModifierFlag::FN, ConsumerKeyCode::MUSIC_NEXT</autogen>
+    </item>
+
+
+    <item>
+      <name>Delete to BackSpace</name>
+      <identifier>remap.purepro.delete_to_backspace</identifier>
+      <device_only>DeviceVendor::Heng_Yu_Technology,DeviceProduct::Poker_Pro_X</device_only>
+      <autogen> --KeyToKey-- KeyCode::FORWARD_DELETE, KeyCode::DELETE </autogen>
+    </item>
+
+    <item>
+      <name>BackSpace to tilde</name>
+      <identifier>remap.purepro.backspace_to_tilde</identifier>
+      <device_only>DeviceVendor::Heng_Yu_Technology,DeviceProduct::Poker_Pro_X</device_only>
+      <autogen> --KeyToKey-- KeyCode::DELETE, KeyCode::BACKQUOTE </autogen>
+    </item>
+      
+    <item>
+      <name>Swap Capslock and Control_L</name>
+      <identifier>remap.purepro.swap_capslock_control_l</identifier>
+      <device_only>DeviceVendor::Heng_Yu_Technology,DeviceProduct::Poker_Pro_X</device_only>
+      <autogen> --KeyToKey-- KeyCode::CONTROL_L, KeyCode::CAPSLOCK </autogen>
+      <autogen> --KeyToKey-- KeyCode::CAPSLOCK, KeyCode::CONTROL_L </autogen>
+    </item>
+
+    <item>
+      <name>Control_R to Option_R</name>
+      <identifier>remap.purepro.control_r_to_option_r</identifier>
+      <device_only>DeviceVendor::Heng_Yu_Technology,DeviceProduct::Poker_Pro_X</device_only>
+      <autogen> --KeyToKey-- KeyCode::CONTROL_R, KeyCode::OPTION_R </autogen>
+    </item>
+    
+  </item>
+  
+  
+</root>
