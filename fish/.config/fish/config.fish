@@ -2,7 +2,7 @@
 set fish_path $HOME/.oh-my-fish
 
 # Path to your custom folder (default path is ~/.oh-my-fish/custom)
-#set fish_custom $HOME/dotfiles/oh-my-fish
+set fish_custom $HOME/dotfiles/oh-my-fish
 
 
 # android sdk, should be prior to the plugin `android-sdk`
@@ -27,6 +27,8 @@ Plugin 'emacs'
 Plugin 'brew'
 Plugin 'android-sdk'
 
+# custom plugins
+Plugin 'boot2docker'
 
 function fish_user_key_bindings
   bind \cr percol_select_history
