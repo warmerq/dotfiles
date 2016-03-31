@@ -38,3 +38,7 @@ end
 set -x DOCKER_CERT_PATH /Users/mengwu/.boot2docker/certs/boot2docker-vm
 set -x DOCKER_HOST tcp://192.168.59.103:2376
 set -x DOCKER_TLS_VERIFY 1
+
+# nvm
+bass export NVM_DIR="/Users/mengwu/.nvm"
+bass [ -s "$NVM_DIR/nvm.sh" ]; and bass . "$NVM_DIR/nvm.sh"  # This loads nvm
